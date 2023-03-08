@@ -2,7 +2,7 @@ import { Router } from "express";
 
 const router = Router();
 
-router.route("/news").get((req, res) => {
+router.route("/login").get((req, res) => {
     res.send("prueba peticion get");
 });
 
