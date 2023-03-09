@@ -1,7 +1,17 @@
 import { Router } from "express";
 import { check } from "express-validator";
-import { listarUsuarios, crearUsuario, buscarUsuario, modificarUsuarios, eliminarUsuarios } from "../controllers/user.controllers";
+import { listarUsuarios, crearUsuario, buscarUsuario, modificarUsuarios, eliminarUsuarios, login } from "../controllers/user.controllers";
 const router = Router();
+
+router
+    .route("/login")
+    .post(
+        [
+            check("email", "El email es obligatorio").isEmail(),
+            check("pass", "La contraseña debe contener 8 caracteres como minimo").isLength({ min: 8 }),
+        ],
+        login
+    );
 
 router
     .route("/user")

@@ -3,7 +3,7 @@ import cors from "cors";
 import morgan from "morgan";
 import newsRoute from "./routes/news.routes";
 import userRoute from "./routes/user.routes";
-import loginRoute from "./routes/login.routes";
+
 import "./database";
 
 //instanciar express y configurar el puerto:
@@ -20,6 +20,5 @@ app.use(express.urlencoded({ extends: true })); //permite interpretar formato js
 app.use(morgan("dev"));
 
 //rutas
-app.use("/bloognews", userRoute); // http://localhost:4000/bloognews/user
 app.use("/bloognews", newsRoute); // http://localhost:4000/bloognews/news
-app.use("/bloognews", loginRoute); // http://localhost:4000/bloognews/login
+app.use("/bloognews/auth", userRoute); // http://localhost:4000/bloognews/auth/user o http://localhost:4000/bloognews/auth/login
