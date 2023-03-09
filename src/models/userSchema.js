@@ -3,8 +3,7 @@ import mongoose, { Schema } from "mongoose";
 const userSchema = new Schema({
     name: {
         type: String,
-        lowercase: true,
-        trim: true,
+        required: true,
     },
     email: {
         type: String,
@@ -16,13 +15,11 @@ const userSchema = new Schema({
     pass: {
         type: String,
         require: true,
-        lowercase: true,
         trim: true,
     },
     repeatPass: {
         type: String,
         require: true,
-        lowercase: true,
         trim: true,
     },
     token: {
