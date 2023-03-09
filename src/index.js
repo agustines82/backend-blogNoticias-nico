@@ -3,8 +3,10 @@ import cors from "cors";
 import morgan from "morgan";
 import newsRoute from "./routes/news.routes";
 import userRoute from "./routes/user.routes";
-
 import "./database";
+import * as dotenv from "dotenv";
+
+dotenv.config();
 
 //instanciar express y configurar el puerto:
 const app = express();

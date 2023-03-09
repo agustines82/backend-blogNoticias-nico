@@ -29,11 +29,13 @@ export const login = async (req, res) => {
             });
         }
 
-        // const token = await generarJWT(usuario._id, usuario.email);
+        //generar el token y enviar la respuesta
+        //const token = await generarJWT(usuario._id, usuario.name);
         return res.status(200).json({
             nombre: usuario.name,
             uid: usuario._id,
             mensaje: "El usuario existe",
+            //token,
         });
     } catch (error) {
         res.status(400).json({
