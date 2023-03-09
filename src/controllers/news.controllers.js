@@ -21,8 +21,8 @@ export const crearNews = async (req, res) => {
                 errores: errors.array(),
             });
         }
-        const savingNew = new NewsModel(req.body);
-        await savingNew.save();
+        const savingNews = new NewsModel(req.body);
+        await savingNews.save();
         res.status(201).json({
             mensaje: "La noticia se creó con exito",
         });
@@ -49,6 +49,12 @@ export const verNews = async (req, res) => {
 
 export const modificarNews = async (req, res) => {
     try {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({
+                errores: errors.array(),
+            });
+        }
         const id = req.params.id;
         await NewsModel.findByIdAndUpdate(id, req.body);
         res.status(200).json({
