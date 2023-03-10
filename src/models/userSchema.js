@@ -22,10 +22,6 @@ const userSchema = new Schema({
         require: true,
         trim: true,
     },
-    token: {
-        type: String,
-        default: "",
-    },
     rol: {
         type: String,
         default: "user",

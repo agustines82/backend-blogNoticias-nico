@@ -1,9 +1,9 @@
 import jwt from "jsonwebtoken";
 
-const generarJWT = (uid, usuario) => {
+const generarJWT = (uid, userName) => {
     return new Promise((resolve, reject) => {
         // los datos
-        const payload = { uid, usuario };
+        const payload = { uid, userName };
         // firmar el token
         jwt.sign(
             payload,

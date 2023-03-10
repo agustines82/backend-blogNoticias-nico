@@ -1,6 +1,7 @@
 import UserModel from "../models/userSchema";
 import { validationResult } from "express-validator";
 import bcrypt from "bcryptjs";
+import generarJWT from "../helpers/jwt";
 
 export const login = async (req, res) => {
     try {
@@ -30,12 +31,12 @@ export const login = async (req, res) => {
         }
 
         //generar el token y enviar la respuesta
-        //const token = await generarJWT(usuario._id, usuario.name);
+        const token = await generarJWT(usuario._id, usuario.email);
         return res.status(200).json({
+            mensaje: "El usuario existe",
             nombre: usuario.name,
             uid: usuario._id,
-            mensaje: "El usuario existe",
-            //token,
+            token,
         });
     } catch (error) {
         res.status(400).json({

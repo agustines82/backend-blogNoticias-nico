@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { check } from "express-validator";
 import { getNews, crearNews, verNews, modificarNews, eliminarNews } from "../controllers/news.controllers";
+import validarJWT from "../helpers/validar-jwt";
 
 const router = Router();
 
@@ -9,6 +10,7 @@ router
     .get(getNews)
     .post(
         [
+            validarJWT,
             check("category")
                 .notEmpty()
                 .withMessage("La categoria es un dato obligatorio")
@@ -49,6 +51,7 @@ router
     .get(verNews)
     .put(
         [
+            validarJWT,
             check("category")
                 .notEmpty()
                 .withMessage("La categoria es un dato obligatorio")
@@ -84,6 +87,6 @@ router
         ],
         modificarNews
     )
-    .delete(eliminarNews);
+    .delete(validarJWT, eliminarNews);
 
 export default router;
