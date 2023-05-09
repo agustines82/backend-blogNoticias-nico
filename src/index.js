@@ -10,7 +10,7 @@ dotenv.config();
 
 //instanciar express y configurar el puerto:
 const app = express();
-app.set("port", process.env.PORT || 4002);
+app.set("port", process.env.PORT || 4000);
 app.listen(app.get("port"), () => {
     console.log("Estoy en el puerto " + app.get("port"));
 });
@@ -22,5 +22,5 @@ app.use(express.urlencoded({ extends: true })); //permite interpretar formato js
 app.use(morgan("dev"));
 
 //rutas
-app.use("/blognews", newsRoute); // http://localhost:4002/blognews/news
-app.use("/blognews/auth", userRoute); // http://localhost:4002/blognews/auth/user o http://localhost:4002/blognews/auth/login
+app.use("/blognews", newsRoute); // http://localhost:4000/blognews/news
+app.use("/blognews/auth", userRoute); // http://localhost:4000/blognews/auth/user o http://localhost:4000/blognews/auth/login
