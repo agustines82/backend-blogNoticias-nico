@@ -22,5 +22,5 @@ app.use(express.urlencoded({ extends: true })); //permite interpretar formato js
 app.use(morgan("dev"));
 
 //rutas
-app.use("/bloognews", newsRoute); // http://localhost:4000/bloognews/news
-app.use("/bloognews/auth", userRoute); // http://localhost:4000/bloognews/auth/user o http://localhost:4000/bloognews/auth/login
+app.use("/blognews", newsRoute); // http://localhost:4002/blognews/news
+app.use("/blognews/auth", userRoute); // http://localhost:4002/blognews/auth/user o http://localhost:4002/blognews/auth/login
